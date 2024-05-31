@@ -1,5 +1,4 @@
 import os
-import math
 
 import comet_ml
 import torch
@@ -49,6 +48,7 @@ if __name__ == '__main__':
 
     trainer = Trainer(
         max_epochs=30,
+        accelerator='gpu',
         logger=comet_logger,
         callbacks=[LearningRateMonitor(logging_interval="step"), TQDMProgressBar(refresh_rate=10)],
     )
