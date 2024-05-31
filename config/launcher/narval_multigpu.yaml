@@ -1,0 +1,20 @@
+# @package _global_
+
+defaults:
+  - alliancecan
+  - override /hydra/launcher: narval
+
+hydra:
+  launcher:
+    gpus_per_node: 4
+    tasks_per_node: 4
+    cpus_per_task: 3
+
+trainer:
+  strategy: ddp
+  devices: 4
+
+datamodule:
+  num_workers: 5
+
+seed: 1
