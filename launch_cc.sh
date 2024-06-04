@@ -2,7 +2,7 @@
 #SBATCH --gpus-per-node=1
 #SBATCH --cpus-per-task=12        # CPU cores/threads
 #SBATCH --mem=32G               # memory per node
-#SBATCH --time=0-06:00
+#SBATCH --time=0-01:00
 nvidia-smi                        # you can use 'nvidia-smi' for a test
 
 module load httpproxy # To allow connections to Comet server
