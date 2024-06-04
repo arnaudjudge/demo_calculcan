@@ -47,7 +47,7 @@ if __name__ == '__main__':
     comet_logger = CometLogger()
 
     trainer = Trainer(
-        max_epochs=30,
+        max_epochs=50,
         accelerator='gpu',
         logger=comet_logger,
         callbacks=[LearningRateMonitor(logging_interval="step"), TQDMProgressBar(refresh_rate=10)],
