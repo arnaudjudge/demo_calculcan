@@ -9,12 +9,15 @@ from pytorch_lightning import LightningModule, Trainer, seed_everything
 from pytorch_lightning.callbacks import LearningRateMonitor
 from pytorch_lightning.callbacks.progress import TQDMProgressBar
 from pytorch_lightning.loggers import CometLogger
+from dotenv import load_dotenv
 
 from model import LitResnet
 
 seed_everything(7)
 
 if __name__ == '__main__':
+    load_dotenv()
+
     # prepare dataloader
     train_transforms = torchvision.transforms.Compose(
         [
@@ -33,7 +36,7 @@ if __name__ == '__main__':
     )
 
     cifar10_dm = CIFAR10DataModule(
-        data_dir=os.environ.get("PATH_DATASETS", "."),
+        data_dir=os.environ.get("DATA_PATH", "."),
         batch_size=256,
         train_transforms=train_transforms,
         test_transforms=test_transforms,
@@ -44,7 +47,7 @@ if __name__ == '__main__':
     model = LitResnet(lr=0.05)
 
     # logger
-    comet_logger = CometLogger()
+    comet_logger = CometLogger(os.environ.get("LOG_PATH", "."))
 
     trainer = Trainer(
         max_epochs=50,

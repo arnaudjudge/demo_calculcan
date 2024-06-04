@@ -16,7 +16,7 @@ mkdir $SLURM_TMPDIR/data/
 cp -r ~/demo_calculcan/ $SLURM_TMPDIR
 echo "project copied"
 
-cp -r ~/scatch/data/cifar-10-python $SLURM_TMPDIR/data/
+cp -r ~/scratch/data/cifar-10-python $SLURM_TMPDIR/data/
 echo "data copied"
 
 cd $SLURM_TMPDIR/demo_calculcan/
