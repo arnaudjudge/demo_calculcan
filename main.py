@@ -20,8 +20,6 @@ seed_everything(7)
 
 @hydra.main(version_base="1.3", config_path="./config", config_name="main")
 def main(cfg: DictConfig):
-    load_dotenv()
-
     # prepare dataloader
     train_transforms = torchvision.transforms.Compose(
         [
@@ -67,4 +65,6 @@ def main(cfg: DictConfig):
 
 
 if __name__ == '__main__':
+    load_dotenv()
+
     main()
