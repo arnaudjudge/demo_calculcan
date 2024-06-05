@@ -3,6 +3,7 @@ import os
 import comet_ml
 import torch
 import torchvision
+from omegaconf import DictConfig
 from pl_bolts.datamodules import CIFAR10DataModule
 from pl_bolts.transforms.dataset_normalizations import cifar10_normalization
 from pytorch_lightning import LightningModule, Trainer, seed_everything
@@ -10,12 +11,15 @@ from pytorch_lightning.callbacks import LearningRateMonitor
 from pytorch_lightning.callbacks.progress import TQDMProgressBar
 from pytorch_lightning.loggers import CometLogger
 from dotenv import load_dotenv
+import hydra
 
 from model import LitResnet
 
 seed_everything(7)
 
-if __name__ == '__main__':
+
+@hydra.main(version_base="1.3", config_path="./config", config_name="main")
+def main(cfg: DictConfig):
     load_dotenv()
 
     # prepare dataloader
@@ -61,3 +65,6 @@ if __name__ == '__main__':
 
     print("DONE")
 
+
+if __name__ == '__main__':
+    main()
