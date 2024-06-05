@@ -11,6 +11,6 @@ setup:
   - "rsync -a ${paths.data_dir}/ $SLURM_TMPDIR/demo_calculcan/data" # copy the dataset to the compute node
   - "export DATA_PATH=$SLURM_TMPDIR/demo_calculcan/data" # override the previous data path with the path on the compute node
 
-additional_parameters:
-  mail-user: ${oc.env:SLURM_MAIL_USER,null}
-  mail-type: ALL
+#additional_parameters:
+#  mail-user: ${oc.env:SLURM_MAIL_USER,null}
+#  mail-type: ALL
