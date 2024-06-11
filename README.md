@@ -33,24 +33,23 @@ pip install -r requirements.txt
 
 # Setup
 
-Download Cifar-10, extract to your desired data folder. Scratch can be useful for data as it has a lot of space available.
+Download Cifar-10 (https://www.cs.toronto.edu/~kriz/cifar.html),copy to desired location. 
+Easiest way is to download locally first, as CC restricts external connections. 
+Scratch can be useful for data as it has a lot of space available.
 
-
-
-
-Change default path in .env this folder must contain folder cifar-10-batches-py.
-Change log path in .env
-Add comet api key to .env
+Rename .env.example to .env and change default values to real ones:
+- Change default path in .env this folder must contain folder cifar-10-batches-py.
+- Change log path in .env
+- Add comet api key if wanted
 
 # Launch
 
-to run training:
+Training can be launched in two different ways:
 
-sbatch launch_cc.sh
-
-or with hydra configs through submitit:
-
-python main.py +launcher=<CLUSTER-NAME> --multirun
+- Using sbatch and a launch script created manually:
+  - ``` sbatch launch_cc.sh ```
+- With hydra configs through submitit:
+  - ```python main.py launcher=<CLUSTER-NAME> --multirun```
 
 
 
