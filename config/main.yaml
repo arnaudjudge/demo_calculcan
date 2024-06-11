@@ -1,6 +1,6 @@
 defaults:
     - paths: custom
-    - launcher: default
+    - launcher: null
     - hydra: default
 
 max_epochs: 10
