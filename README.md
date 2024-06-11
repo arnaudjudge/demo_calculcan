@@ -51,6 +51,10 @@ Training can be launched in two different ways:
 - With hydra configs through submitit:
   - ```python main.py launcher=<CLUSTER-NAME> --multirun```
 
+# Tips
+
+- Use tmux to avoid suspended terminals
+- Look at resource usage and adjust requests accordingly for future tasks
 
 
 
