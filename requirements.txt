@@ -1,7 +1,7 @@
 # --------- pytorch --------- #
 torch==2.3.0
 torchvision>=0.15.0
-lightning==2.2.5
+lightning==2.2.4 # 2.2.4
 torchmetrics>=0.11.4
 lightning-bolts==0.7.0
 pytorch_lightning<=1.8.0
