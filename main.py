@@ -48,13 +48,15 @@ def main(cfg: DictConfig):
     # prepare model
     model = LitResnet(lr=0.05)
 
-    # logger
-    comet_logger = CometLogger(os.environ.get("api_key", ""), os.environ.get("LOG_PATH", "."))
+    if cfg.logger:
+        logger = CometLogger(os.environ.get("api_key", ""), os.environ.get("LOG_PATH", "."))
+    else:
+        logger = None
 
     trainer = Trainer(
-        max_epochs=50,
+        max_epochs=cfg.max_epochs,
         accelerator='gpu',
-        logger=comet_logger,
+        logger=logger,
         callbacks=[LearningRateMonitor(logging_interval="step"), TQDMProgressBar(refresh_rate=10)],
     )
 
