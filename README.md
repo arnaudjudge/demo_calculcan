@@ -27,7 +27,7 @@ Update pip (recommended by ComputeCanada)
 Environment is created, go to project and install dependencies
 
 ```
-cd demo_calulcan
+cd demo_calculcan
 pip install -r requirements.txt
 ```
 
